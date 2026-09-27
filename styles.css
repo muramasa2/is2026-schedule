@@ -421,3 +421,5 @@ details.dropped ul { margin: 4px 0 0; padding-left: 18px; }
 .cand-room { font-size: 14px; }
 .day-tools { margin: 6px 0 2px; }
 .day-tools .btn { min-height: 38px; font-size: 13px; }
+.hint { font-size: 13px; margin: -2px 0 8px; }
+.cand-block .cand-check { border-radius: 50%; }

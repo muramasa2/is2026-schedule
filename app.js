@@ -471,7 +471,7 @@ function candCard(c, cand, picked) {
   const kindLabel = cand.type === 'poster' ? 'ポスター' : KIND_LABEL(cand.kind);
   const time = cand.type === 'poster' ? `${cand.minutes} 分` : `${cand.start}–${cand.end}`;
   const targets = cand.targets?.length ? `<details class="reason"><summary>狙いの論文 ${cand.targets.length} 件</summary><p>${cand.targets.map((t) => `${esc(t.priority || '')} ${esc(t.title)}`).join('<br>')}</p></details>` : '';
-  return `<button type="button" class="cand ${picked ? 'is-picked' : ''} prio-${esc(cand.priority || 'none')}" role="checkbox" aria-checked="${picked}" data-pick="${esc(c.id)}" data-ckey="${esc(cand.ckey)}">
+  return `<button type="button" class="cand ${picked ? 'is-picked' : ''} cand-${cand.type} prio-${esc(cand.priority || 'none')}" role="${cand.type === 'block' ? 'radio' : 'checkbox'}" aria-checked="${picked}" data-pick="${esc(c.id)}" data-ckey="${esc(cand.ckey)}">
     <span class="cand-head"><span class="cand-check" aria-hidden="true">${picked ? '✓' : ''}</span>${prioBadge(cand.priority)}<span class="chip">${esc(kindLabel)}</span>${cand.timeType ? ttChip(cand.timeType) : ''}<span class="cand-time">${esc(time)}</span></span>
     <span class="cand-title">${esc(cand.title)}</span>
     <span class="cand-room">${cand.room ? `📍 <strong>${esc(cand.room)}</strong>${roomHint(cand.room) ? ` <span class="muted">${esc(roomHint(cand.room))}</span>` : ''}` : '📍 会場未記載'}</span>
@@ -528,6 +528,7 @@ function choiceBlock(c, ctx) {
     </div>
     ${decideHtml}
     <div class="step-lbl">1. 同じ時間帯にあるもの — 興味のあるものにチェック（${picks.size} 件）</div>
+    <div class="muted hint">時刻が重なる口頭・セッションはどれか 1 つだけ選べます（選ぶと重なる方は外れます）。ポスターは時間が自由なので複数選べます。</div>
     <div class="parallel">${rows}${posterRow}</div>
     <div class="step-lbl">2. チェックから組んだ回り方</div>
     <div class="plan">
@@ -887,7 +888,14 @@ document.addEventListener('click', (e) => {
   }
   if (t.dataset.pick) {
     const c = DATA.days.flatMap((d) => d.slots).find((x) => x.id === t.dataset.pick);
-    const set = picksOf(c); set.has(t.dataset.ckey) ? set.delete(t.dataset.ckey) : set.add(t.dataset.ckey);
+    const set = picksOf(c); const ck = t.dataset.ckey;
+    if (set.has(ck)) set.delete(ck);
+    else {
+      set.add(ck);
+      // 時刻固定の候補は、時間が重なる他の候補と排他
+      const { blocks } = candidatesOf(c); const me = blocks.find((b) => b.ckey === ck);
+      if (me) for (const b of blocks) if (b.ckey !== ck && set.has(b.ckey) && toMin(b.start) < toMin(me.end) && toMin(me.start) < toMin(b.end)) set.delete(b.ckey);
+    }
     state.picks[c.id] = [...set]; saveState(); rerenderKeep(); return;
   }
   if (t.dataset.pickPreset) {
