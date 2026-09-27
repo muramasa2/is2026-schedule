@@ -3,7 +3,13 @@
 ICC Sydney（2026/9/28–10/1）の個人聴講行程を、スマホと PC の両方で確認・更新するための静的 Web アプリ。
 サーバー・ログイン・ビルド不要。`schedule_data.json` を差し替えれば別会議にも使える。
 
-## 起動
+## 公開 URL（GitHub Pages）
+
+https://muramasa2.github.io/is2026-schedule/
+
+スマホの Safari／Chrome で開き「ホーム画面に追加」すると PWA として入り、機内モードでも起動する。`main` に push すると自動で更新される（反映まで 1〜2 分、開いている端末は 2 回リロード）。
+
+## 起動（ローカル）
 
 ```bash
 cd is2026-schedule
