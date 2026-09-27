@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#1e293b" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="IS2026">
+<title>Interspeech 2026 聴講スケジュール</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#main">本文へ</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <span class="brand-title">IS2026</span>
+      <span class="brand-sub" id="brand-sub">Interspeech 2026 · ICC Sydney</span>
+    </div>
+    <nav class="nav nav-top" aria-label="画面切替" id="nav-top"></nav>
+    <button class="icon-btn" id="theme-btn" type="button" aria-label="ダークモード切替" title="ダークモード切替">◐</button>
+  </div>
+  <div id="daybar"></div>
+  <div id="nowbar" aria-live="polite"></div>
+</header>
+<main id="main" class="main" tabindex="-1"></main>
+<nav class="nav nav-bottom" aria-label="画面切替" id="nav-bottom"></nav>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script src="schedule_data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

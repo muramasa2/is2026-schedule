@@ -1,0 +1,15 @@
+{
+  "name": "Interspeech 2026 聴講スケジュール",
+  "short_name": "IS2026",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#101317",
+  "theme_color": "#2f5fd1",
+  "lang": "ja",
+  "description": "Interspeech 2026（ICC Sydney）の個人聴講行程・メモ",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
