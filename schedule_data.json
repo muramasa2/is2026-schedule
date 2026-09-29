@@ -1082,10 +1082,10 @@
           "kind": "choice",
           "start": "14:00",
           "end": "16:00",
-          "title": "午後：IN-F5 14:00–14:20（実施済み）→ ポスター → 15:20 Survey か 15:40 Binding か",
-          "decideAt": "15:12",
-          "decideNote": "9/29 現地確認：IN-F5〔A07-O1-04〕は 14:00 に開始（Web・冊子いずれとも異なる）。15:12 に Gallery を出る前に C3.4 の掲示で Survey Talk の開始時刻を確認し、15:20 開始なら Survey、無ければ 15:40 C2.3 の Binding Effect へ。",
-          "default": "actual",
+          "title": "午後：IN-F5 14:00–14:20（済）→ ポスター → 15:40 Binding Effect（Survey は開始せず）",
+          "decideAt": "15:30",
+          "decideNote": "9/29 14:20 現地確認：Survey Talk は始まらず。ポスター後、15:30 に Gallery を出て 15:40 C2.3 の Binding Effect へ。",
+          "default": "actualB",
           "options": [
             {
               "id": "actual",
@@ -3243,7 +3243,7 @@
   },
   "notes": {
     "unresolved": [
-      "【9/29 確定】火 IN-F5〔A07-O1-04〕は 14:00–14:20 に実施（現地確認）。Survey Talk の有無・時刻は 15:12 時点で C3.4 掲示を確認。",
+      "【9/29 確定】火 IN-F5〔A07-O1-04〕は 14:00–14:20 に実施。Survey Talk は 14:20 時点で開始せず（当日進行 B を採用）。",
       "火 Area07-Oral1（Low-Resource Speech Synthesis, C3.4）の進行が冊子と Web で異なる。冊子：口頭 4 件で IN-F5 は 15:00–15:20、Survey なし。Web：Survey Talk（Sakti）14:00–14:40、IN-F5 は 15:40–16:00。14:00 に現地で確認してプラン A／B を選ぶ。",
       "火 IN-F5〔A07-O1-04〕の時刻は資料で 3 通り：Web＝15:40–16:00（Survey 14:00–14:40）、冊子（Claude 版参照）＝15:00–15:20・Survey なし、冊子 p.231–232（ChatGPT 版参照）＝15:00–15:20・Survey 15:20–16:00。当日アプリで IN-F5 が 15:40 なら Binding Effect を外して IN-F5 を優先。",
       "Special Session Area14-1（水 16:30）／Area14-2（木 09:00）の個別発表時刻・形式は未公表。冒頭に進行を確認する。",
