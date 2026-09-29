@@ -1082,11 +1082,218 @@
           "kind": "choice",
           "start": "14:00",
           "end": "16:00",
-          "title": "午後：Area07-Oral1 の進行が冊子と Web で異なる。プラン A／B を 14:00 に現地で決める",
-          "decideAt": "14:00",
-          "decideNote": "14:00 に C3.4 で掲示・座長（Hema A. Murthy）の案内を確認。Survey Talk（Sakti）が 14:00 に始まるならプラン A（Web 進行、IN-F5 は 15:40）。口頭が 14:00 から始まるならプラン B（冊子進行、IN-F5 は 15:00）。 ChatGPT 版が参照した冊子（印刷 p.231–232）では IN-F5 15:00–15:20、Survey 15:20–16:00 と、さらに別の並びになっている。当日アプリの表示を正とする。",
-          "default": "planA",
+          "title": "午後：IN-F5 は 14:00 に開始（現地確認）。ポスター後、15:20 Survey か 15:40 Binding か",
+          "decideAt": "15:12",
+          "decideNote": "9/29 現地確認：IN-F5〔A07-O1-04〕は 14:00 に開始（Web・冊子いずれとも異なる）。15:12 に Gallery を出る前に C3.4 の掲示で Survey Talk の開始時刻を確認し、15:20 開始なら Survey、無ければ 15:40 C2.3 の Binding Effect へ。",
+          "default": "actual",
           "options": [
+            {
+              "id": "actual",
+              "label": "当日進行（IN-F5 14:00 → ポスター → 15:20 Survey）",
+              "tradeoff": "Binding Effect（15:40 C2.3）を落とす。Survey が 15:20 に無ければ「当日進行 B」へ。",
+              "slots": [
+                {
+                  "id": "tue-inf5-actual",
+                  "kind": "talk",
+                  "start": "14:00",
+                  "end": "14:20",
+                  "timeType": "official",
+                  "title": "IN-F5: Adapting an English TTS Foundation Model for Multilingual and Zero-Resource Indian Speech Synthesis",
+                  "room": "C3.4（Area07-Oral1）",
+                  "code": "A07-O1-04",
+                  "paperNo": "3366",
+                  "team": "AI4Bharat, IIT Madras",
+                  "priority": "A",
+                  "reason": "最優先。 当日 14:00 開始を現地確認（9/29）。"
+                },
+                {
+                  "id": "tue-move-act1",
+                  "kind": "move",
+                  "start": "14:20",
+                  "end": "14:28",
+                  "title": "移動 C3.4 → The Gallery p5"
+                },
+                {
+                  "id": "tue-posters-actual",
+                  "kind": "poster_tour",
+                  "start": "14:28",
+                  "end": "15:12",
+                  "timeType": "proposed",
+                  "title": "codec の分離評価（p5）→ TTS テキスト処理（p2）",
+                  "room": "Gallery p5 → p2",
+                  "items": [
+                    {
+                      "order": 1,
+                      "code": "A06-P3-07",
+                      "paperNo": "2406",
+                      "title": "Beyond Cross-Reconstruction: Probing-Based Disentanglement Evaluation for Acoustic Teleportation Codecs",
+                      "team": "Grundhuber, Habets（Fraunhofer IIS）",
+                      "room": "Gallery p5",
+                      "priority": "A",
+                      "minutes": 17,
+                      "reason": "意図／非意図パーティション間の probe 差で分離を測る。"
+                    },
+                    {
+                      "order": 2,
+                      "code": "A06-P3-09",
+                      "paperNo": "3493",
+                      "title": "Probing Low Frame Rate Degradation in Neural Audio Codecs",
+                      "team": "CMU Africa",
+                      "room": "Gallery p5",
+                      "priority": "B",
+                      "minutes": 7,
+                      "reason": ""
+                    },
+                    {
+                      "order": 3,
+                      "code": "A07-P4-05",
+                      "paperNo": "909",
+                      "title": "UR-BERT: Scaling Text Encoders for Massively Multilingual TTS Through Universal Romanization and Speech Token Prediction",
+                      "team": "Yonsei",
+                      "room": "Gallery p2",
+                      "priority": "B",
+                      "minutes": 10,
+                      "reason": "テキスト側スケーリング・言語間転移。"
+                    },
+                    {
+                      "order": 4,
+                      "code": "A07-P4-02",
+                      "paperNo": "2447",
+                      "title": "DiaMoE-TTS: A Unified IPA-Based Dialect TTS Framework with Parameter-Efficient Adaptation and Reward-Driven Optimization",
+                      "team": "清華大／Giant Network",
+                      "room": "Gallery p2",
+                      "priority": "B",
+                      "minutes": 10,
+                      "reason": "音素体系拡張＋PEFT。"
+                    }
+                  ]
+                },
+                {
+                  "id": "tue-move-act2",
+                  "kind": "move",
+                  "start": "15:12",
+                  "end": "15:20",
+                  "title": "移動 Gallery → C3.4（掲示で Survey の時刻を確認）"
+                },
+                {
+                  "id": "tue-survey-late",
+                  "kind": "talk",
+                  "start": "15:20",
+                  "end": "16:00",
+                  "timeType": "tentative",
+                  "title": "Survey Talk: Low-Resource Speech Synthesis: What Have We Solved, and What Remains?",
+                  "room": "C3.4（Area07-Oral1）",
+                  "code": "Surv-07-1",
+                  "team": "Sakriani Sakti",
+                  "priority": "A",
+                  "reason": "低資源・転移の俯瞰。代替：Survey “Recent advances in speech language model for ASR”（Jinyu Li, C3.3）。 冊子 p.231–232 の並び（Survey 15:20–16:00）。Gallery を出る前に C3.4 の掲示で開始時刻を確認。"
+                }
+              ]
+            },
+            {
+              "id": "actualB",
+              "label": "当日進行 B（IN-F5 14:00 → ポスター → 15:40 Binding Effect）",
+              "tradeoff": "Survey Talk を落とす。ポスターは 15:30 まで延ばせる。",
+              "slots": [
+                {
+                  "id": "tue-inf5-actualB",
+                  "kind": "talk",
+                  "start": "14:00",
+                  "end": "14:20",
+                  "timeType": "official",
+                  "title": "IN-F5: Adapting an English TTS Foundation Model for Multilingual and Zero-Resource Indian Speech Synthesis",
+                  "room": "C3.4（Area07-Oral1）",
+                  "code": "A07-O1-04",
+                  "paperNo": "3366",
+                  "team": "AI4Bharat, IIT Madras",
+                  "priority": "A",
+                  "reason": "最優先。 当日 14:00 開始を現地確認（9/29）。"
+                },
+                {
+                  "id": "tue-move-act3",
+                  "kind": "move",
+                  "start": "14:20",
+                  "end": "14:28",
+                  "title": "移動 C3.4 → The Gallery p5"
+                },
+                {
+                  "id": "tue-posters-actualB",
+                  "kind": "poster_tour",
+                  "start": "14:28",
+                  "end": "15:30",
+                  "timeType": "proposed",
+                  "title": "codec の分離評価（p5）→ TTS テキスト処理（p2）",
+                  "room": "Gallery p5 → p2",
+                  "items": [
+                    {
+                      "order": 1,
+                      "code": "A06-P3-07",
+                      "paperNo": "2406",
+                      "title": "Beyond Cross-Reconstruction: Probing-Based Disentanglement Evaluation for Acoustic Teleportation Codecs",
+                      "team": "Grundhuber, Habets（Fraunhofer IIS）",
+                      "room": "Gallery p5",
+                      "priority": "A",
+                      "minutes": 17,
+                      "reason": "意図／非意図パーティション間の probe 差で分離を測る。"
+                    },
+                    {
+                      "order": 2,
+                      "code": "A06-P3-09",
+                      "paperNo": "3493",
+                      "title": "Probing Low Frame Rate Degradation in Neural Audio Codecs",
+                      "team": "CMU Africa",
+                      "room": "Gallery p5",
+                      "priority": "B",
+                      "minutes": 7,
+                      "reason": ""
+                    },
+                    {
+                      "order": 3,
+                      "code": "A07-P4-05",
+                      "paperNo": "909",
+                      "title": "UR-BERT: Scaling Text Encoders for Massively Multilingual TTS Through Universal Romanization and Speech Token Prediction",
+                      "team": "Yonsei",
+                      "room": "Gallery p2",
+                      "priority": "B",
+                      "minutes": 10,
+                      "reason": "テキスト側スケーリング・言語間転移。"
+                    },
+                    {
+                      "order": 4,
+                      "code": "A07-P4-02",
+                      "paperNo": "2447",
+                      "title": "DiaMoE-TTS: A Unified IPA-Based Dialect TTS Framework with Parameter-Efficient Adaptation and Reward-Driven Optimization",
+                      "team": "清華大／Giant Network",
+                      "room": "Gallery p2",
+                      "priority": "B",
+                      "minutes": 10,
+                      "reason": "音素体系拡張＋PEFT。"
+                    }
+                  ]
+                },
+                {
+                  "id": "tue-move-act4",
+                  "kind": "move",
+                  "start": "15:30",
+                  "end": "15:40",
+                  "title": "移動 Gallery → C2.3"
+                },
+                {
+                  "id": "tue-binding-actual",
+                  "kind": "talk",
+                  "start": "15:40",
+                  "end": "16:00",
+                  "timeType": "official",
+                  "title": "The Binding Effect: Analysis of How Multi-Dimensional Cues Form Gender Bias in Instruction TTS",
+                  "room": "C2.3（Area07-Oral5）",
+                  "code": "A07-O5-06",
+                  "paperNo": "66",
+                  "team": "Kuan-Yu Chen ほか（NTU／USC）",
+                  "priority": "B",
+                  "reason": "ITTS の記述中の社会的手がかりの相互作用と、テキストエンコーダの prior。"
+                }
+              ]
+            },
             {
               "id": "planA",
               "label": "プラン A（Web 進行：Survey → IN-F5 15:40）",
@@ -3332,6 +3539,7 @@
   },
   "notes": {
     "unresolved": [
+      "【9/29 確定】火 IN-F5〔A07-O1-04〕は 14:00–14:20 に実施（現地確認）。Survey Talk の有無・時刻は 15:12 時点で C3.4 掲示を確認。",
       "火 Area07-Oral1（Low-Resource Speech Synthesis, C3.4）の進行が冊子と Web で異なる。冊子：口頭 4 件で IN-F5 は 15:00–15:20、Survey なし。Web：Survey Talk（Sakti）14:00–14:40、IN-F5 は 15:40–16:00。14:00 に現地で確認してプラン A／B を選ぶ。",
       "火 IN-F5〔A07-O1-04〕の時刻は資料で 3 通り：Web＝15:40–16:00（Survey 14:00–14:40）、冊子（Claude 版参照）＝15:00–15:20・Survey なし、冊子 p.231–232（ChatGPT 版参照）＝15:00–15:20・Survey 15:20–16:00。当日アプリで IN-F5 が 15:40 なら Binding Effect を外して IN-F5 を優先。",
       "Special Session Area14-1（水 16:30）／Area14-2（木 09:00）の個別発表時刻・形式は未公表。冒頭に進行を確認する。",
