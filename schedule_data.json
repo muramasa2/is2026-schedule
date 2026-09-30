@@ -1458,7 +1458,7 @@
     {
       "date": "2026-09-30",
       "label": "9/30（水）",
-      "subtitle": "解析系口頭 → 感情 TTS・steering・merging ポスター → merge／steering 連続講演 → 自分の発表",
+      "subtitle": "解析系口頭 → 感情 TTS・steering・merging ポスター → merge／steering → Bagpiper-Edit → 自分の発表",
       "officialPosterWindows": [
         {
           "start": "09:00",
@@ -2247,31 +2247,83 @@
           ]
         },
         {
-          "id": "wed-move5",
-          "kind": "move",
+          "id": "wed-1540-choice",
+          "kind": "choice",
           "start": "15:40",
-          "end": "15:47",
-          "title": "移動 C2.2 → The Gallery"
-        },
-        {
-          "id": "wed-yodas",
-          "kind": "poster_tour",
-          "start": "15:47",
           "end": "16:00",
-          "timeType": "proposed",
-          "title": "YODAS v3（Gallery 内で締めて、そのまま準備へ）",
-          "room": "Gallery p6",
-          "items": [
+          "title": "15:40：Bagpiper-Edit（William Chen, C2.6）か、Gallery で YODAS v3 を見て準備に入るか",
+          "default": "bagpiper-edit",
+          "decideNote": "16:00–16:30 は自分の発表準備（Gallery p2）。C2.6 → Gallery は約 8 分なので、Bagpiper-Edit を聴いても 16:08 頃には着ける。",
+          "options": [
             {
-              "order": 1,
-              "code": "A12-P1-11",
-              "paperNo": "",
-              "title": "YODAS v3: Over 1 Million Hours of High-Bandwidth, Stereophonic, Multilingual Speech",
-              "team": "（冊子タイトルで確認）",
-              "room": "Gallery p6",
-              "priority": "B",
-              "minutes": 12,
-              "reason": "今後の TTS／SLM 学習の基盤になり得る公開データ。Gallery 内なので 16:00 の準備にそのまま移れる。"
+              "id": "bagpiper-edit",
+              "label": "Bagpiper-Edit（C2.6, 15:40–16:00）",
+              "tradeoff": "YODAS v3 ポスターを落とす。発表準備の開始が 16:08 頃にずれる。",
+              "slots": [
+                {
+                  "id": "wed-move-be1",
+                  "kind": "move",
+                  "start": "15:40",
+                  "end": "15:43",
+                  "title": "移動 C2.2 → C2.6（同フロア、2–3 分遅れて入室）"
+                },
+                {
+                  "id": "wed-1540-bagpiper-edit",
+                  "kind": "talk",
+                  "start": "15:40",
+                  "end": "16:00",
+                  "timeType": "official",
+                  "title": "Bagpiper-Edit: Zero-Shot Open-Ended Audio Editing via Rich-Caption",
+                  "room": "C2.6（Area07-Oral2）",
+                  "code": "A07-O2-06",
+                  "team": "Xun Gong（SJTU）, Jinchuan Tian, Haoran Wang, William Chen, Shinji Watanabe（CMU）, Yanmin Qian（SJTU）",
+                  "priority": "A",
+                  "reason": "自由文の指示による open-ended な音声・音楽・環境音の編集。編集を rich caption の書き換えタスクとして定式化し、元音声を acoustic anchor として編集後 caption から生成。対になった編集データ不要でゼロショット編集。木 Bagpiper-TTS（A07-O7-06）と同系。聞きたいこと：非編集部分・話者性の一貫性をどう評価したか、caption 表現の粒度と編集の局所性。直前の C2.2 steering（15:40 終了）から同フロア移動で 2–3 分遅れて入室。終了後 Gallery p2 へ直行（16:08 頃到着、準備 22 分）。"
+                },
+                {
+                  "id": "wed-move-be2",
+                  "kind": "move",
+                  "start": "16:00",
+                  "end": "16:08",
+                  "title": "移動 C2.6 → Gallery p2（発表準備へ直行）"
+                }
+              ]
+            },
+            {
+              "id": "yodas",
+              "label": "Gallery で YODAS v3 → そのまま準備",
+              "tradeoff": "Bagpiper-Edit を落とす。準備に余裕。",
+              "slots": [
+                {
+                  "id": "wed-move5",
+                  "kind": "move",
+                  "start": "15:40",
+                  "end": "15:47",
+                  "title": "移動 C2.2 → The Gallery"
+                },
+                {
+                  "id": "wed-yodas",
+                  "kind": "poster_tour",
+                  "start": "15:47",
+                  "end": "16:00",
+                  "timeType": "proposed",
+                  "title": "YODAS v3（Gallery 内で締めて、そのまま準備へ）",
+                  "room": "Gallery p6",
+                  "items": [
+                    {
+                      "order": 1,
+                      "code": "A12-P1-11",
+                      "paperNo": "",
+                      "title": "YODAS v3: Over 1 Million Hours of High-Bandwidth, Stereophonic, Multilingual Speech",
+                      "team": "（冊子タイトルで確認）",
+                      "room": "Gallery p6",
+                      "priority": "B",
+                      "minutes": 12,
+                      "reason": "今後の TTS／SLM 学習の基盤になり得る公開データ。Gallery 内なので 16:00 の準備にそのまま移れる。"
+                    }
+                  ]
+                }
+              ]
             }
           ]
         },
